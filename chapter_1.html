@@ -1,0 +1,38 @@
+
+<html>
+    <head>Chapter 1</head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script>
+    var app=angular.module('myapp',[]);
+    app.controller('myctrl',function($scope){
+        $scope.firstName = 'John';
+        $scope.ClickMe=function()
+        {
+            alert("Hello!! "+$scope.firstName);
+        }
+    });
+    </script>
+    <body>
+        <div ng-app="myapp" ng-controller="myctrl">
+        <table >
+            <tr>
+                <td><label type="text" text="Name" >Name</label></td>
+                <td>:</td>
+                <td><input type="text" text="Name" ng-model="firstName"/></td>
+            </tr>
+            <tr style="align-items: center">
+                    <td rowspan="3" style="border-color:seagreen">{{firstName}}</td>
+            </tr>
+            <tr style="align-items: center">
+                <td rowspan="3">
+                    <input type="button" value="ClickMe" ng-click="ClickMe()" class="btn btn-default" style="border-color:black"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </body>
+</html>

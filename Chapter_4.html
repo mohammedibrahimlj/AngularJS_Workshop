@@ -1,0 +1,30 @@
+<html>
+    <head>Filter Demo</head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script>
+        var app=angular.module('myapp',[]);
+        app.controller('myctrl',function($scope){
+        $scope.Animals=[{Name:'Lion'},{Name:'Tiger'},{Name:'Bear'}
+        ,{Name:'Boar'},{Name:'Panther'},{Name:'Wolf'},{Name:'Wild Dog'},{Name:'hyena'}
+        ,{Name:'Fox'},{Name:'Coyoto'},{Name:'Jaguar'},{Name:'Cougar'},{Name:'Monkey'}];
+
+    });
+    </script>
+    <body>
+        <div ng-app="myapp" ng-controller="myctrl">
+        <table>
+            <tr>
+                <td><label>SearchText</label></td>
+                <td><input type="text" ng-model="search"></td>
+            </tr>
+        </table>
+        <ul>
+            <li ng-repeat="animal in Animals | filter:search">{{animal.Name}}</li>
+        </ul>
+    </div>
+    </body>
+</html>

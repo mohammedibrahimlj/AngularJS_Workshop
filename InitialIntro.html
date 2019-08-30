@@ -1,0 +1,27 @@
+<html>
+    <head>
+        Intro Angular js
+    </head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script>
+        var app=angular.module('myapp',[]);
+        app.controller('myctrl',function($scope){
+            $scope.ChangeValue=function()
+            {
+                $scope.myvar="Change default value"
+            }
+        });
+    </script>
+    <body>
+        <div class="jumbotron" ng-app="myapp" ng-controller="myctrl" ng-init="myvar = 'Show default value...'">
+            <button class="btn" ng-click="ChangeValue()" style="border-color: black;">
+                    Click me 
+            </button>
+            <span class="badge badge-primary">{{myvar}}</span>
+        </div>
+    </body>
+</html>

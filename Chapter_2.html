@@ -1,0 +1,56 @@
+
+<html>
+        <head>Chapter 2</head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script>
+        var app=angular.module('myapp',[]);
+        app.controller('myctrl',function($scope){
+            $scope.option="Male";
+            $scope.IsLion=false;
+            $scope.isTiger=false;
+            $scope.isBear=false;
+            $scope.Onchange=function()
+            {
+                alert("Hello!! "+$scope.option);
+                if($scope.option=="Lion")
+                {
+                    $scope.IsLion=true;
+                    $scope.isTiger=false;
+                    $scope.isBear=false;
+                }
+                else if($scope.option=="Tiger"){
+                    $scope.IsLion=false;
+                    $scope.isTiger=true;
+                    $scope.isBear=false;
+                }
+                else if($scope.option=="Bear"){
+                    $scope.IsLion=false;
+                    $scope.isTiger=false;
+                    $scope.isBear=true;
+                }
+            }
+        });
+        </script>
+        <body>
+            <div ng-app="myapp" ng-controller="myctrl">
+            <table>
+                <tr>
+                <td>
+                    <select ng-model="option" ng-change="Onchange()">
+                        <option>Lion</option>
+                        <option>Tiger</option>
+                        <option>Bear</option>
+                    </select>
+                </td>
+                </tr>
+            </table>
+            <div ng-if="IsLion">The lion is a species in the family Felidae; it is a muscular, deep-chested cat with a short, rounded head, a reduced neck and round ears, and a hairy tuft at the end of its tail. It is sexually dimorphic; male lions have a prominent mane, which is the most recognisable feature of the species</div>
+            <div ng-if="isTiger">The tiger is the largest species among the Felidae and classified in the genus Panthera. It is most recognisable for its dark vertical stripes on reddish-orange fur with a lighter underside. It is an apex predator, primarily preying on ungulates such as deer and wild boar</div>
+            <div ng-if="isBear">Bears are carnivoran mammals of the family Ursidae. They are classified as caniforms, or doglike carnivorans. Although only eight species of bears are extant, they are widespread, appearing in a wide variety of habitats throughout the Northern Hemisphere and partially in the Southern Hemisphere</div>
+        </div>
+        </body>
+    </html>
